@@ -17,10 +17,10 @@ $.ajax({
             titleCol.html(todo.title);
 
             let beginCol = $('<td>');
-            beginCol.html(todo.beginAt);
+            beginCol.html(moment(todo.beginAt).format('DD-MM-YYYY'));
 
             let endCol = $('<td>');
-            endCol.html(todo.endAt);
+            endCol.html(moment(todo.endAt).format('DD-MM-YYYY'));
 
             row.append(blankCol);
             row.append(titleCol);
@@ -32,7 +32,7 @@ $.ajax({
 
     },
     error: (error) => {
-        alert('Erreur : ' + error);
+        alert('Erreur : ' + JSON.stringify(error));
     }
 
 })
